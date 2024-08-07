@@ -9,11 +9,12 @@
     align-items: center;
     bottom: 0;
     width: 100%;
-    border-top: 1px solid rgba(114, 119, 125, 0.3);
     z-index: 999;
     left: 0;
     right: 0;
-    height: 72px;
+    height: 74px;
+    border-radius: 25px 25px 0 0;
+    background: #EEE9FF;
 }
 
 .NavBar-item {
@@ -23,15 +24,10 @@
     opacity: 0.8;
 }
 
-.active-tab {
-    color: #0667CE;
+.active-tab  {
+    fill: #FAB540;
 }
 .tab-section-name {
     font-size: 13px;
     margin-top: 5px;
-}
-
-.NavBar-item svg {
-    height: 24px;
-    fill: #495057;
 }

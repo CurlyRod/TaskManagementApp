@@ -1,4 +1,5 @@
-﻿<Router AppAssembly="@typeof(Main).Assembly">
+﻿@using MudBlazor
+<Router AppAssembly="@typeof(Main).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
@@ -6,6 +7,12 @@
     <NotFound>
         <LayoutView Layout="@typeof(MainLayout)">
             <p role="alert">Sorry, there's nothing at this address.</p>
+              <MudButton Variant="Variant.Filled" 
+                 StartIcon="@Icons.Material.Filled.Dashboard" 
+                 Color="Color.Error"
+                 OnClick="BackToDashboard">
+                 Back to Dashboard 
+             </MudButton>
         </LayoutView>
     </NotFound>
 </Router>
