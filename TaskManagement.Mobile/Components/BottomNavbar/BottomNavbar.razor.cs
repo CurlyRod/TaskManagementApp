@@ -25,7 +25,7 @@ namespace TaskManagement.Mobile.Components.BottomNavbar
         {
             MenuBar = new List<MenuBarItem>()
             {   
-                new MenuBarItem  { TabName = "", Link = "/", Icon = Icons.Material.Filled.Home },
+                new MenuBarItem  { TabName = "", Link = "/home", Icon = Icons.Material.Filled.Home },
                 new MenuBarItem  { TabName = "", Link = "/calendar", Icon = Icons.Material.Filled.CalendarMonth },
                 new MenuBarItem  { TabName = "", Link = "/counter", Icon = Icons.Material.Filled.LibraryBooks },
                 new MenuBarItem  { TabName = "", Link = "/fetchdata", Icon = Icons.Material.Filled.People }, 
