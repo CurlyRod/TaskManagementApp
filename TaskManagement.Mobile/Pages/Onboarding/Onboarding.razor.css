@@ -1,0 +1,36 @@
+﻿.content-wrapper {
+    height: 80vh;
+    display: grid;
+}
+.img-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem; 
+    margin-top:2rem;
+
+}
+.img-container img {
+    height: 200px;
+    width: 100%;
+}
+.message-container {
+    display: grid;
+    grid-gap: .5rem;
+    line-height: 1.2rem;
+    text-align: center;
+    margin-bottom: 4.5rem;
+} 
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #5B67CA;
+    height: 2.5rem;
+    color: #ffffff;
+    border-radius: 8px;
+    text-align: center;
+}
+
+

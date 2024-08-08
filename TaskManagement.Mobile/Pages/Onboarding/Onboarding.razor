@@ -1,0 +1,19 @@
+﻿@page "/onboarding"  
+@using MudBlazor;
+
+<div class="content-wrapper">   
+    <div class="img-container"> 
+        <img src="./Images/onboarding.png"/>        
+    </div> 
+    <div class="message-container">
+        <span> <h3> Task Management & To-Do List</h3></span>
+        <span class="desc-message text-muted">
+            This productive tool is designed to help
+            you better manage your task conveniently!
+        </span>
+    </div>
+    <div class="btn-container" @onclick="GoToDashboard">
+        <span> Lets Go!</span>
+        <MudIcon Icon="@Icons.Material.Filled.ArrowRight" Color="Color.Default" Size="Size.Large"/>
+    </div>
+</div>
