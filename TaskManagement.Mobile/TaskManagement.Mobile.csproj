@@ -52,17 +52,28 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Components\BottomNavbar\BottomNavbar.razor.css" />
+      <None Remove="Pages\Onboarding\Onboarding.razor.css" />
+      <None Remove="Resources\Images\onboarding.png" />
       <None Remove="Resources\Splash\splashscreen.svg" />
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="Components\BottomNavbar\BottomNavbar.razor.css" />
+      <Content Include="Pages\Onboarding\Onboarding.razor.css" />
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MudBlazor" Version="7.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Components\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <MauiImage Include="wwwroot\Images\onboarding.png" />
     </ItemGroup>
 
 </Project>

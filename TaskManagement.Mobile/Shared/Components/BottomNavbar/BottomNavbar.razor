@@ -1,0 +1,23 @@
+﻿@using MudBlazor
+@inject NavigationManager NavigationManager 
+
+@if (IsVisible())
+{
+  <div class="NavBar-wrapper">
+     
+        <div class="NavBar">        
+            @foreach (var menu in MenuBar)
+            {
+                <div class="NavBar-item" @onclick='() => OnRoute(menu.Link)'> 
+                    <span class="@(IsTabActive(menu.Link) ? "active-tab" : "")">
+                        <MudIcon
+                         Icon="@menu.Icon" 
+                         Size="menu.IconSize"
+                         Color="menu.Color" />
+                        <div class="tab-section-name"></div>
+                    </span>
+                </div>
+            }
+        </div>
+  </div>
+}

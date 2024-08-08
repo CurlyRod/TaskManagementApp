@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.JSInterop;
 using MudBlazor;
 
-namespace TaskManagement.Mobile.Components.BottomNavbar
+namespace TaskManagement.Mobile.Shared.Components.BottomNavbar
 {
     public partial class BottomNavbar
     {    
@@ -13,7 +13,9 @@ namespace TaskManagement.Mobile.Components.BottomNavbar
         {
             public string TabName { get; set; } = default!; 
             public string Link { get; set; } = default!;     
-            public string Icon { get; set; }  
+            public string Icon { get; set; }
+            public MudBlazor.Size IconSize { get; set; } = MudBlazor.Size.Medium;
+            public MudBlazor.Color Color { get; set; } = MudBlazor.Color.Default;
         }
         protected override async Task OnInitializedAsync() 
         {
@@ -25,10 +27,11 @@ namespace TaskManagement.Mobile.Components.BottomNavbar
         {
             MenuBar = new List<MenuBarItem>()
             {   
-                new MenuBarItem  { TabName = "", Link = "/home", Icon = Icons.Material.Filled.Home },
-                new MenuBarItem  { TabName = "", Link = "/calendar", Icon = Icons.Material.Filled.CalendarMonth },
-                new MenuBarItem  { TabName = "", Link = "/counter", Icon = Icons.Material.Filled.LibraryBooks },
-                new MenuBarItem  { TabName = "", Link = "/fetchdata", Icon = Icons.Material.Filled.People }, 
+                new MenuBarItem  { TabName = "", Link = "/home", Icon = Icons.Material.Filled.Home ,  IconSize = default },
+                new MenuBarItem  { TabName = "", Link = "/onboarding", Icon = Icons.Material.Filled.CalendarMonth , IconSize = default }, 
+                new MenuBarItem  { TabName = "", Link ="/add" , Icon= Icons.Material.Filled.AddCircle , IconSize = MudBlazor.Size.Large , Color = MudBlazor.Color.Primary },
+                new MenuBarItem  { TabName = "", Link = "/counter", Icon = Icons.Material.Filled.LibraryBooks , IconSize = default },
+                new MenuBarItem  { TabName = "", Link = "/fetchdata", Icon = Icons.Material.Filled.People ,  IconSize = default }, 
             };
             await Task.CompletedTask; 
 

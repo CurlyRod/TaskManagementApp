@@ -3,7 +3,9 @@
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-
+body {
+    background:#f6f8ff;
+}
 h1:focus {
     outline: none;
 }
@@ -84,9 +86,13 @@ a, .btn-link {
 } 
 /*for Custom Global CSS */
 .NavBar-item svg.mud-icon-root:hover {
-    fill: #FAB540 !important;
+    fill: #5B67CA !important;
 }
 .NavBar-item .active-tab svg.mud-icon-root {
-    fill: #FAB540 !important;
+    fill: #5B67CA !important;
 }
+.btn-container svg.mud-icon-root {
+    fill: white;
+}
+
 
