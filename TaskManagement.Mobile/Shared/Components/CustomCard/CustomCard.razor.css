@@ -1,0 +1,55 @@
+﻿
+.custom-cards {
+    margin-top: .5rem;
+    background: #E4E7F9;
+    border-radius: 5px;
+    /*box-shadow: 6px 6px 11px -8px #CFD5F7;*/
+    border: 1px solid #CFD5F7;
+    padding: 10px;
+}
+
+.custom-cards-header-container .schedule-time {
+    color: #9AA8C7;
+    font-size: 12px;
+}
+
+.custom-cards-title {
+    font-size: 15px;
+}
+.custom-cards-title-wrapper {
+    display: grid;
+}
+.custom-cards-header-container {
+    display: grid;
+    grid-template-columns: 0fr 1fr 0fr;
+    gap: 10px;
+}
+.color-indicator {
+    margin: 2px 0 2px 0;
+    background: var(--dark-violet);
+    width: 5px;
+    border-radius: 5px;
+}
+
+.tags-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: start;
+    gap: 10px; 
+    margin-left:10px;
+}
+
+.tags-dark-violet {
+    background: #b5aeec;
+    color: #ECEAFF;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 11px;
+}
+span.custom-cards-menu {
+    line-height: 0;
+    font-size: 1.7rem;  
+    text-align:center;
+
+}
+
