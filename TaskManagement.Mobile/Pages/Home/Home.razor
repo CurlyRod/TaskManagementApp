@@ -3,102 +3,106 @@
 @using TaskManagement.Mobile.Shared.Components.BottomNavbar  
 @using TaskManagement.Mobile.Shared.Components.CustomCard
 @using TaskManagement.Mobile.Shared.Components.Loader 
-@using TaskManagement.Mobile.Shared.Components.CustomCard
 
-<div class="content-wrapper">
-    <div class="top-bar">   
-        <div class="top-bar-wrapper">   
-            <span class="user-profile-name">    
-                Hi, Rod Mark 
-            </span>  
-            <span class="user-profile-img"> 
-                <img src ="./Images/default-icon.png" class="user-image" alt="user-profile"/>
-            </span> 
-        </div>
-        <span class="top-bar-desc">Ensure that today is fruitful.</span>
-    </div>  
 
-    <div class="my-task-container">
-        <span class="my-task-title">My Task</span>   
-        
-        <div class="grid-cards-container">
-            <div class="grid-cards">
-                <div class="completed-container">
-                     <div class="container-one">
-                         <img src="./Images/Home/analysis.png"/> 
-                         <span class="title">Completed</span> 
-                         <span class="task-status">86 Task</span>
-                     </div>
-                    <span class="home-icon-container">
-                    <MudIcon
-                        Icon="@Icons.Material.Rounded.DoubleArrow"
-                        Color="Color.Default" 
-                        Size="Size.Small">
-                   </MudIcon>
-                   </span>
-                </div> 
-                <div class="canceled-container">
-                   <div class="container-one">  
-                        <span class="canceled-icon">
-                            <img src="./Images/Home/calendar.png" class="cancel-img" />
-                        </span>
-                        <span class="cancel-title">Canceled</span>
-                        <span class="cancel-task-status">86 Task</span>
-                   </div>
-                    <span class="home-icon-container">
-                        <MudIcon 
-                            Icon="@Icons.Material.Rounded.DoubleArrow"
-                            Color="Color.Default"
-                            Size="Size.Small">
-                        </MudIcon>
-                    </span>
-                </div>
+<div class="content-wrapper"> 
+    @if(IsLoading)
+    {
+        <Loader></Loader>
+    }
+    else
+    {
+        <div class="top-bar">
+            <div class="top-bar-wrapper">
+                <span class="user-profile-name">
+                    Hi, Rod Mark
+                </span>
+                <span class="user-profile-img">
+                    <img src="./Images/default-icon.png" class="user-image" alt="user-profile" />
+                </span>
             </div>
-            <div class="grid-cards">
-                <div class="pending-container">
-                    <div class="container-one">
-                        <span class="pending-icon">
-                            <img src="./Images/Home/clock.png" class="pending-img"/>
+            <span class="top-bar-desc">Ensure that today is fruitful.</span>
+        </div>
+
+        <div class="my-task-container">
+            <span class="my-task-title">My Task</span>
+
+            <div class="grid-cards-container">
+                <div class="grid-cards">
+                    <div class="completed-container">
+                        <div class="container-one">
+                            <img src="./Images/Home/analysis.png" />
+                            <span class="title">Completed</span>
+                            <span class="task-status">86 Task</span>
+                        </div>
+                        <span class="home-icon-container">
+                            <MudIcon Icon="@Icons.Material.Rounded.DoubleArrow"
+                                     Color="Color.Default"
+                                     Size="Size.Small">
+                            </MudIcon>
                         </span>
-                        <span class="pending-title">Pending</span>
-                        <span class="pending-task-status">86 Task</span>
                     </div>
-                    <span class="home-icon-container">
-                        <MudIcon Icon="@Icons.Material.Rounded.DoubleArrow"
-                            Color="Color.Default"
-                            Size="Size.Small">
-                        </MudIcon>
-                    </span>
+                    <div class="canceled-container">
+                        <div class="container-one">
+                            <span class="canceled-icon">
+                                <img src="./Images/Home/calendar.png" class="cancel-img" />
+                            </span>
+                            <span class="cancel-title">Canceled</span>
+                            <span class="cancel-task-status">86 Task</span>
+                        </div>
+                        <span class="home-icon-container">
+                            <MudIcon Icon="@Icons.Material.Rounded.DoubleArrow"
+                                     Color="Color.Default"
+                                     Size="Size.Small">
+                            </MudIcon>
+                        </span>
+                    </div>
                 </div>
-                <div class="ongoing-container">
+                <div class="grid-cards">
+                    <div class="pending-container">
+                        <div class="container-one">
+                            <span class="pending-icon">
+                                <img src="./Images/Home/clock.png" class="pending-img" />
+                            </span>
+                            <span class="pending-title">Pending</span>
+                            <span class="pending-task-status">86 Task</span>
+                        </div>
+                        <span class="home-icon-container">
+                            <MudIcon Icon="@Icons.Material.Rounded.DoubleArrow"
+                                     Color="Color.Default"
+                                     Size="Size.Small">
+                            </MudIcon>
+                        </span>
+                    </div>
+                    <div class="ongoing-container">
                         <div class="container-one">
                             <img src="./Images/Home/prioritize.png" />
                             <span class="title">On Going</span>
                             <span class="task-status">86 Task</span>
                         </div>
                         <span class="home-icon-container">
-                            <MudIcon 
-                                Icon="@Icons.Material.Rounded.DoubleArrow"
-                                Color="Color.Default"
-                                Size="Size.Small">
+                            <MudIcon Icon="@Icons.Material.Rounded.DoubleArrow"
+                                     Color="Color.Default"
+                                     Size="Size.Small">
                             </MudIcon>
                         </span>
-                    </div>              
+                    </div>
+                </div>
             </div>
         </div>
-    </div>  
-    <div class="today-task-container">
-       <div class="task-today-wrapper-title"> 
-            <span class="task-today-title">Task Today</span> 
-            <span class="icon-task-today">            
-                <MudIcon Icon="@Icons.Material.Rounded.ViewList" 
-                Color="Color.Primary" Size="Size.Small"></MudIcon>
-                View All
-            </span>    
-       </div> 
-       <div class="task-list-container">
-         <CustomCard></CustomCard>
-       </div>
-    </div>
-    <BottomNavbar/>
+        <div class="today-task-container">
+            <div class="task-today-wrapper-title">
+                <span class="task-today-title">Task Today</span>
+                <span class="icon-task-today">
+                    <MudIcon Icon="@Icons.Material.Rounded.ViewList"
+                             Color="Color.Primary" Size="Size.Small"></MudIcon>
+                    View All
+                </span>
+            </div>
+            <div class="task-list-container">
+                <CustomCard></CustomCard>
+            </div>
+        </div>
+        <BottomNavbar />
+    } 
 </div>
