@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
 using TaskManagement.Mobile.Data;
 
@@ -17,8 +19,9 @@ namespace TaskManagement.Mobile
                 });
 
             builder.Services.AddMauiBlazorWebView();
-            builder.Services.AddMudServices(); 
-
+            builder.Services.AddMudServices();
+           
+            builder.Services.AddSingleton<TaskAppDbContext>();                    
 
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
