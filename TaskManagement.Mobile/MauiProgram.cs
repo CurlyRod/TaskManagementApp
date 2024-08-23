@@ -20,9 +20,9 @@ namespace TaskManagement.Mobile
 
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddMudServices();
-           
-            builder.Services.AddSingleton<TaskAppDbContext>();                    
 
+            builder.Services.AddDbContext<TaskAppDbContext>();
+            builder.Services.AddSingleton<MainPage>();
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
