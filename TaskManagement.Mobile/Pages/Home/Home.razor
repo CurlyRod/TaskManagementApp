@@ -2,7 +2,8 @@
 @using MudBlazor
 @using TaskManagement.Mobile.Shared.Components.BottomNavbar  
 @using TaskManagement.Mobile.Shared.Components.CustomCard
-@using TaskManagement.Mobile.Shared.Components.Loader 
+@using TaskManagement.Mobile.Shared.Components.Loader  
+@using TaskManagement.Mobile.Models
 
 
 <div class="content-wrapper"> 
@@ -98,7 +99,18 @@
                              Color="Color.Primary" Size="Size.Small"></MudIcon>
                     View All
                 </span>
-            </div>
+            </div> 
+            @{
+                foreach (var data in Users)
+                {
+                   <ul>
+                    <li> @data.Id </li>
+                    <li> @data.Name </li>
+                    <li> @data.Email </li>
+                    <li> @data.CreatedDate </li>
+                    </ul>    
+                }
+            }
             <div class="task-list-container">
                 <CustomCard></CustomCard>
             </div>

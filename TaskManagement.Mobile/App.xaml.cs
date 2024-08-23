@@ -1,16 +1,16 @@
-﻿using TaskManagement.Mobile.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using TaskManagement.Mobile.Data;
+using TaskManagement.Mobile.Models;
 
 namespace TaskManagement.Mobile
 {
     public partial class App : Application
-    {
-        public App()
-        {
+    {   
+       public App(MainPage mainPage)
+        { 
             InitializeComponent();
-
-            dbContext =  new TaskAppDbContext();
-            MainPage = new MainPage();
+            MainPage = mainPage;
         }
-        public static TaskAppDbContext dbContext { get; private set; }
+     
     }
 }
