@@ -99,18 +99,7 @@
                              Color="Color.Primary" Size="Size.Small"></MudIcon>
                     View All
                 </span>
-            </div> 
-            @{
-                foreach (var data in Users)
-                {
-                   <ul>
-                    <li> @data.Id </li>
-                    <li> @data.Name </li>
-                    <li> @data.Email </li>
-                    <li> @data.CreatedDate </li>
-                    </ul>    
-                }
-            }
+            </div>   
             <div class="task-list-container">
                 <CustomCard></CustomCard>
             </div>

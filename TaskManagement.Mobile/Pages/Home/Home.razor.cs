@@ -16,7 +16,7 @@ namespace TaskManagement.Mobile.Pages.Home
         protected override async Task OnInitializedAsync()
         {
             _context.Database.Migrate();
-            SeedData();
+         //   SeedData();
             await Task.Delay(2000); // Set only for 2s for loading. Ui 
             IsLoading = false;
              await  GetAllUser(); 
