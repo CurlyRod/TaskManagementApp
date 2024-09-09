@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
 using TaskManagement.Mobile.Data;
+using TaskManagement.Mobile.Services;
+using TaskManagement.Mobile.Services.TaskService;
 
 namespace TaskManagement.Mobile
 {
@@ -22,6 +24,8 @@ namespace TaskManagement.Mobile
             builder.Services.AddMudServices();
 
             builder.Services.AddDbContext<TaskAppDbContext>();
+       
+
             builder.Services.AddSingleton<MainPage>();
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
@@ -29,8 +33,17 @@ namespace TaskManagement.Mobile
 #endif
 
             builder.Services.AddSingleton<WeatherForecastService>();
+            builder.Services.AddSingleton<TaskService>();
+           
 
-            return builder.Build();
+            var app = builder.Build();
+            using (var scope = app.Services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<TaskAppDbContext>();
+                db.Database.Migrate();
+            }
+            return app;
+
         }
     }
 }

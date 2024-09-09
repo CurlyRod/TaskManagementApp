@@ -1,10 +1,11 @@
 ﻿@page "/home" 
 @using MudBlazor
+@using TaskManagement.Mobile.Services.TaskService
 @using TaskManagement.Mobile.Shared.Components.BottomNavbar  
 @using TaskManagement.Mobile.Shared.Components.CustomCard
 @using TaskManagement.Mobile.Shared.Components.Loader  
 @using TaskManagement.Mobile.Models
-
+@inject TaskService TaskService
 
 <div class="content-wrapper"> 
     @if(IsLoading)
@@ -91,6 +92,10 @@
                 </div>
             </div>
         </div>
+        @foreach (var user in Users)
+        {
+            <li>@user?.Name</li>
+        }
         <div class="today-task-container">
             <div class="task-today-wrapper-title">
                 <span class="task-today-title">Task Today</span>
@@ -103,7 +108,8 @@
             <div class="task-list-container">
                 <CustomCard></CustomCard>
             </div>
-        </div>
+        </div> 
+      
         <BottomNavbar />
     } 
 </div>
