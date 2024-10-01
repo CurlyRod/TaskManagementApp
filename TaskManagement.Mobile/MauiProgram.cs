@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
 using TaskManagement.Mobile.Data;
-using TaskManagement.Mobile.Services;
 using TaskManagement.Mobile.Services.TaskService;
 
 namespace TaskManagement.Mobile

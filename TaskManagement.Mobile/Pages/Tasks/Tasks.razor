@@ -1,0 +1,47 @@
+﻿@page "/tasks"   
+@inject IJSRuntime JSRuntime
+@using MudBlazor
+@inject IDialogService DialogService
+
+<div class="container-cards"> 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                </div> 
+               
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <div class="header-container">  
+       <span>Task</span>
+        <span>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+            </button>
+
+        </span>
+   </div>
+       <div class="wrapper-swiper"> 
+            @foreach (var Dates in MonthAndDays)
+            {
+                <div class="cards-container" id="@(IsActive(@Dates.DayNumber) ? "active-tab" : "")" onclick="@(() => GetTaskAsyncByDate(@Dates.DayNumber))">
+                    <div class="test">@Dates.DayName</div>
+                    <div>@Dates.DayNumber</div>
+                </div>
+            }
+    </div>
+</div>
+<BottomNavbar></BottomNavbar> 
+
+@code{
+
+    private DateTime? _date = DateTime.Today; 
+
+  
+}

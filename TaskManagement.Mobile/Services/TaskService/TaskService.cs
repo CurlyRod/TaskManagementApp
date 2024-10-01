@@ -10,7 +10,7 @@ using TaskManagement.Mobile.Models;
 
 namespace TaskManagement.Mobile.Services.TaskService
 {
-    public class TaskService
+    public class TaskService :  ITaskRepository
     {
         private readonly TaskAppDbContext _context;
 
@@ -19,9 +19,26 @@ namespace TaskManagement.Mobile.Services.TaskService
             _context = context;
 
         }
-        public async Task<List<UserInfoEntities>> GetAllUsersAsync()
+
+        public Task<bool> DeleteTaskAsync(int taskId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<UserInfoEntities>> GetAllUserAsync()
         {
             return await _context.UserModelEntities.ToListAsync();
         }
+
+        public Task<IEnumerable<TaskModel>> GetTaskAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<UserInfoEntities>> GetUserAsync(int userId)
+        {
+            return await _context.UserModelEntities.Where(x => x.Id == userId).ToListAsync();
+        }
+
     }
 }
