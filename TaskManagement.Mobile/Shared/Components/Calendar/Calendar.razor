@@ -1,38 +1,57 @@
-﻿@page "/calendar" 
-@using System.Globalization
+﻿@page "/calendar"  
+@using System.Globalization  
 
 <div class="calendar-container"> 
-    <span>
-        <button @onclick="PreviousMonth">Previous</button>
-        <span>@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(MonthNow)) @YearNow.ToString()</span>
-        <button @onclick="NextMonth">Next</button>
-    </span>
-    <table class="calendar-table"> 
-        <thead>
-            <tr> 
-                @foreach (var dayname in DayName)
-                {
-                   <th>@dayname</th>
-                }
-            </tr>
-        </thead> 
-        <tbody>
-            @foreach (var WeekDays in Weeks)
-            {
+   <div class="header-container">
+        <span class="month-container">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(MonthNow)) @YearNow.ToString()</span>
+        <span class="icon-container"> 
+            <MudIcon Icon="@Icons.Material.Filled.ArrowBackIos"   
+               
+                Size="Size.Small"
+                Color="Color.Dark"
+                @onclick="PreviousMonth">
+          </MudIcon>
+            <MudIcon Icon="@Icons.Material.Filled.ArrowForwardIos"  
+                Size="Size.Small" 
+                Color="Color.Dark"
+                @onclick="NextMonth">
+          </MudIcon>
+        </span> 
+   </div>
+    <div class="calendar-content"> 
+        <table class="calendar-table">
+            <thead>
                 <tr>
-                    @foreach (var days in WeekDays)
+                    @foreach (var dayname in DayName)
                     {
-                        <td>
-                            @if (days.HasValue)
-                            {
-                                <span id ="@(IsActive(days.Value.Day) ? "active-tab":"")"> @days.Value.Day</span>    
-                            }
-                        </td>
+                        <th>@dayname</th>
                     }
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var WeekDays in Weeks)
+                {
+                    <tr>
+                        @foreach (var days in WeekDays)
+                        {
+                            <td>
+                                @if (days.HasValue)
+                                {
+                                    <div onclick="@(()=> GetSelectedDate(days.Value.Day))">
+                                        <span id="@(IsActive(days.Value.Day) ? "active-tab":"")">@days.Value.Day </span>
+                                    </div>
+
+                                }
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-btn-bottom text-center p-3">
+        <MudButton Variant="Variant.Outlined" Color="Color.Secondary" data-bs-dismiss="modal">Cancel</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary">Save</MudButton>
+    </div>
 </div>
 
-<BottomNavbar></BottomNavbar>
