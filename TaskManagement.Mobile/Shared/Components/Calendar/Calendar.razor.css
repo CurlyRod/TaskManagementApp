@@ -1,12 +1,24 @@
 ﻿.calendar-container {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid grey;
+    display: grid;
+    padding: 5px;
 }
-
+.header-container { 
+    display:grid; 
+    grid-template-columns:4fr 1fr auto; 
+    padding: 1rem .5rem 2rem .5rem;  
+}
+.icon-container {
+    text-align:end;
+}
 .calendar-table {
     border-collapse: collapse;
     width: 100%;
+} 
+.calendar-table thead th{
+    font-weight:400;
+}
+.month-container { 
+    font-weight:500;
 }
 .calendar-table th, .calendar-table td {
    text-align: center;

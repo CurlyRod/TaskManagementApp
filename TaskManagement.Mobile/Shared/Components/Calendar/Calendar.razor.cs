@@ -1,4 +1,5 @@
-using System.Globalization;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace TaskManagement.Mobile.Shared.Components.Calendar
 {
@@ -9,7 +10,7 @@ namespace TaskManagement.Mobile.Shared.Components.Calendar
         private  DateTime CurrentDate = DateTime.Now;
         private int MonthNow => CurrentDate.Month;
         private int YearNow => CurrentDate.Year;
-        public int DateNow { get; set; } = DateTime.Now.Day; 
+        public int DateNow { get; set; } = DateTime.Now.Day;  
 
         protected override async Task OnInitializedAsync()
         {
@@ -53,15 +54,26 @@ namespace TaskManagement.Mobile.Shared.Components.Calendar
             Weeks.Add(Week);
         }
         public void NextMonth()
-        { 
+        {
             CurrentDate =  CurrentDate.AddMonths(1); 
             GenerateCalendar(YearNow, MonthNow);
-           
         }
-        public void PreviousMonth() 
+        public void PreviousMonth()
         {
             CurrentDate = CurrentDate.AddMonths(-1);
+            if (CurrentDate.Year < DateTime.Now.Year) {
+                CurrentDate = CurrentDate.AddMonths(+1);
+            }
             GenerateCalendar(YearNow, MonthNow);
+        }
+        public async Task GetSelectedDate(int date) 
+        {
+            DateNow = date;
+            IsActive(date);
+            StateHasChanged(); 
+         
+            await JSRuntime.InvokeVoidAsync("console.log", $"{MonthNow}/{date}/{YearNow}");
+
         }
 
     }
