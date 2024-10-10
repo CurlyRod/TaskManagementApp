@@ -10,7 +10,7 @@ namespace TaskManagement.Mobile.Shared.Components.Calendar
         private  DateTime CurrentDate = DateTime.Now;
         private int MonthNow => CurrentDate.Month;
         private int YearNow => CurrentDate.Year;
-        public int DateNow { get; set; } = DateTime.Now.Day;  
+        private int DateNow { get; set; } = DateTime.Now.Day;  
 
         protected override async Task OnInitializedAsync()
         {

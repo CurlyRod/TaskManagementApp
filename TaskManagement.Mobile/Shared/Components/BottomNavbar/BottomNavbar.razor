@@ -7,9 +7,9 @@
      
         <div class="NavBar">        
             @foreach (var menu in MenuBar)
-            {
-                <div class="NavBar-item" @onclick='() => OnRoute(menu.Link)'> 
-                    <span class="@(IsTabActive(menu.Link) ? "active-tab" : "")">
+            {   
+                <div class="NavBar-item" @onclick='() => OnRoute(menu.Link)'>
+                    <span class="@(IsTabActive(menu.Link) ? "active-tab" : "#")" data-bs-toggle="@(menu.Link == "/addtask" ? "modal" : "")" data-bs-target="@(menu.Link == "/addtask" ? "#exampleModal" : "")" >
                         <MudIcon
                          Icon="@menu.Icon" 
                          Size="menu.IconSize"

@@ -31,7 +31,28 @@
 ::-webkit-scrollbar {
     display: none;
 }
-
+ 
+.header-container {
+    display:grid; 
+    grid-template-columns: 1fr 1fr;  
+    margin-bottom:1.2rem;
+}   
+.header-container :nth-child(1){
+  font-weight:600; 
+  font-size:1.3rem; 
+  color: #10275A;
+} 
+.header-container :nth-child(2){  
+ font-size: 12px;
+ justify-content:end;
+ display:flex;
+ align-items:center; 
+ color:#525F77;  
+ gap:3px;
+}
+input#search-bar {
+ font-size: 12px;
+}
 
 
 
