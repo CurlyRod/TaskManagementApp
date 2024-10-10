@@ -9,14 +9,18 @@
                  <Calendar></Calendar>
             </div>
         </div>
+    </div> 
+    <div class="searchbar-container">
+        <div class="input-group mb-4">
+            <input type="text" class="form-control" id="search-bar" placeholder="Search for Task">
+            <span class="input-group-text"><MudIcon Icon="@Icons.Material.Filled.Search" Size="Size.Small"/></span>
+        </div>
     </div>
-
    <div class="header-container">  
        <span>Task</span>
-        <span>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Launch demo modal
-            </button>
+        <span> 
+            <MudIcon Icon="@Icons.Material.Filled.CalendarMonth" Color="Color.Default" Size="Size.Small"/> 
+            August 2024    
         </span>
    </div>
        <div class="wrapper-swiper"> 
@@ -34,6 +38,7 @@
 @code{
 
     private DateTime? _date = DateTime.Today; 
+    public string TextValue { get; set; }
 
   
 }

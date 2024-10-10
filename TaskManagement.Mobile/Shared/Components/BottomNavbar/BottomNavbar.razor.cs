@@ -29,7 +29,7 @@ namespace TaskManagement.Mobile.Shared.Components.BottomNavbar
             {   
                 new MenuBarItem  { TabName = "", Link = "/home", Icon = Icons.Material.Filled.Home ,  IconSize = default },
                 new MenuBarItem  { TabName = "", Link = "/tasks", Icon = Icons.Material.Filled.CalendarMonth , IconSize = default }, 
-                new MenuBarItem  { TabName = "", Link ="/calendar" , Icon= Icons.Material.Filled.AddCircle , IconSize = MudBlazor.Size.Large , Color = MudBlazor.Color.Primary },
+                new MenuBarItem  { TabName = "", Link ="/addtask" , Icon= Icons.Material.Filled.AddCircle , IconSize = MudBlazor.Size.Large , Color = MudBlazor.Color.Primary },
                 new MenuBarItem  { TabName = "", Link = "/", Icon = Icons.Material.Filled.LibraryBooks , IconSize = default },
                 new MenuBarItem  { TabName = "", Link = "/onboarding", Icon = Icons.Material.Filled.People ,  IconSize = default }, 
             };
@@ -43,7 +43,10 @@ namespace TaskManagement.Mobile.Shared.Components.BottomNavbar
         }
         private void OnRoute(string url)
         {
-            NavigationManager.NavigateTo(url);
+            if (url != "/addtask")
+            {
+                NavigationManager.NavigateTo(url);
+            }
         }
         public bool IsVisible()
         {
