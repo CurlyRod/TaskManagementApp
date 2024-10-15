@@ -106,6 +106,18 @@ a, .btn-link {
 span.home-icon-container .mud-icon-root {
     fill: white;
 }
+.time .mud-input {
+    color: var(--primary-text-darkblue);
+    font-weight: bold;
+}
+.date .mud-input { 
+   color:var(--primary-text-darkblue); 
+   font-weight:bold;
+}
+.plan-for-month .mud-input {
+    color: var(--primary-text-darkblue);
+    font-weight: bold;
+}
 
 
 

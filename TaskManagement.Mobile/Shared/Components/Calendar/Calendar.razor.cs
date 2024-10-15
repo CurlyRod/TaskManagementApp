@@ -1,3 +1,4 @@
+
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
@@ -10,13 +11,17 @@ namespace TaskManagement.Mobile.Shared.Components.Calendar
         private  DateTime CurrentDate = DateTime.Now;
         private int MonthNow => CurrentDate.Month;
         private int YearNow => CurrentDate.Year;
-        private int DateNow { get; set; } = DateTime.Now.Day;  
+        private int DateNow { get; set; } = DateTime.Now.Day;
+        IJSObjectReference JsObjectRef { get; set; }
+        private Task<IJSObjectReference>? _module;
 
+        private Task<IJSObjectReference> Module => _module ??= JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/CloseModal.js").AsTask();
         protected override async Task OnInitializedAsync()
         {
              GenerateCalendar(YearNow, MonthNow);
              StateHasChanged();
         }
+      
         public bool IsActive(int daynumber)
         { 
             return daynumber == DateNow;
@@ -71,9 +76,13 @@ namespace TaskManagement.Mobile.Shared.Components.Calendar
             DateNow = date;
             IsActive(date);
             StateHasChanged(); 
-         
-            await JSRuntime.InvokeVoidAsync("console.log", $"{MonthNow}/{date}/{YearNow}");
 
+        }
+        private async void GotoAddTask()
+        {
+            await JSRuntime.InvokeVoidAsync("CloseModal");
+            var path = $"{MonthNow}-{DateNow}-{YearNow}";
+            NavigationManager.NavigateTo($"/add-task/{ path }");
         }
 
     }

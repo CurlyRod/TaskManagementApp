@@ -1,0 +1,40 @@
+﻿@page "/add-task/{Date}"
+
+<div class="add-task-container">
+    <div class="header-wrapper">
+        <span><MudIcon Icon="@Icons.Material.Filled.ArrowBackIos"/></span> 
+        <p>Add Task</p>
+    </div> 
+   <div class="content-container">  
+      <div class="plan-for-month"> 
+            <span>Title</span>
+            <MudTextField @bind-Value="TextValue" Variant="Variant.Text" Margin="Margin.Dense"></MudTextField>
+      </div> 
+      <div class="date">
+            <span>Date</span>
+           <span>
+                <MudTextField @bind-Value="TextValue" Variant="Variant.Text" Margin="Margin.Dense"></MudTextField> 
+           </span>
+      </div> 
+      <div class="time">
+            <span>Time</span> 
+            <div class="time-set"> 
+                <span class="start-time"> 
+                    <MudTimePicker PickerVariant="PickerVariant.Dialog"  AmPm="true" @bind-Time="_time" />
+                </span> 
+                 <span class="end-time">
+                    <MudTimePicker PickerVariant="PickerVariant.Dialog"  AmPm="true" @bind-Time="_time" />
+                </span>
+            </div>
+      </div> 
+      <div class="description">
+            <span>Description</span>
+            <MudTextField @bind-Value="TextValue" Variant="Variant.Text" Margin="Margin.Dense"></MudTextField>
+      </div>
+   </div>
+</div> 
+
+@code{
+    public string TextValue { get; set; } 
+    private TimeSpan? _time = new TimeSpan(00, 45, 00);
+}
