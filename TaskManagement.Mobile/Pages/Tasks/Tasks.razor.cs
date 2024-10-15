@@ -4,7 +4,7 @@ using TaskManagement.Mobile.Models;
 
 namespace TaskManagement.Mobile.Pages.Tasks
 {
-    public partial class Tasks
+    public partial class Tasks 
     {
         public List<MonthAndDaysModel> MonthAndDays { get; set; } 
         public static int monthNow = DateTime.Now.Month; 
@@ -13,7 +13,6 @@ namespace TaskManagement.Mobile.Pages.Tasks
         protected override async Task OnInitializedAsync()
         {
             await GetMonthAndDays();
-
         }
         public async Task GetTaskAsyncByDate(int dateSelected)
         {

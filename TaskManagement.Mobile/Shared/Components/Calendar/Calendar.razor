@@ -1,12 +1,13 @@
 ﻿@page "/calendar"  
-@using System.Globalization  
+@using System.Globalization    
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
 
 <div class="calendar-container"> 
    <div class="header-container">
         <span class="month-container">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(MonthNow)) @YearNow.ToString()</span>
         <span class="icon-container"> 
-            <MudIcon Icon="@Icons.Material.Filled.ArrowBackIos"   
-               
+            <MudIcon Icon="@Icons.Material.Filled.ArrowBackIos"        
                 Size="Size.Small"
                 Color="Color.Dark"
                 @onclick="PreviousMonth">
@@ -51,7 +52,7 @@
     </div>
     <div class="modal-btn-bottom text-center p-3">
         <MudButton Variant="Variant.Outlined" Color="Color.Secondary" data-bs-dismiss="modal">Cancel</MudButton>
-        <MudButton Variant="Variant.Filled" Color="Color.Primary">Save</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="GotoAddTask">Save</MudButton>
     </div>
 </div>
 

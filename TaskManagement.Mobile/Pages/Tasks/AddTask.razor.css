@@ -1,0 +1,31 @@
+﻿:root{
+    --primary-color: #10275A;
+    --secondary-color: #8A8BB3; 
+}
+.header-wrapper {
+    display:grid; 
+    grid-template-columns:1fr 2fr; 
+    align-items:center ; 
+    margin: 1rem 0 2rem 0;
+}  
+.header-wrapper p{
+    margin:0;
+}
+.plan-for-month, .date, .time{
+    margin-bottom:1rem; 
+}  
+
+.plan-for-month, .date, .time span{
+    font-size:small; 
+}  
+
+.date span:nth-child(2){
+    display:flex
+} 
+.time .time-set{
+    display:grid;  
+    gap:1rem;
+    grid-template-columns:2fr 2fr; 
+    color:var(--primary-color); 
+    font-weight:bold;
+}
