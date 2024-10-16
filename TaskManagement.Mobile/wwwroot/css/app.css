@@ -108,15 +108,15 @@ span.home-icon-container .mud-icon-root {
 }
 .time .mud-input {
     color: var(--primary-text-darkblue);
-    font-weight: bold;
 }
 .date .mud-input { 
    color:var(--primary-text-darkblue); 
-   font-weight:bold;
 }
 .plan-for-month .mud-input {
     color: var(--primary-text-darkblue);
-    font-weight: bold;
+}
+.text-dark-blue {
+ color:var(--primary-text-darkblue);
 }
 
 
