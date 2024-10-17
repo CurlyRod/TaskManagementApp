@@ -7,10 +7,10 @@
     </div>  
     <div class="content-wrapper">   
         <div class="plan-for-month mb-2"> 
-            <MudTextField T="string" Text="Lorem ipsum dolor" Label="Title" Variant="Variant.Text"></MudTextField>
+            <MudTextField T="string" Text="Click to add title" Label="Title" Variant="Variant.Text"></MudTextField>
         </div>
         <div class="date mb-2">
-            <MudTextField T="string" Text="Lorem ipsum dolor" Label="Date" Variant="Variant.Text"></MudTextField>
+            <MudTextField T="string" Text="@ConvertedDate"  Disabled="true"Label="Date" Variant="Variant.Text"></MudTextField>
         </div>
         <div class="start-time mb-2">
             <MudTimePicker PickerVariant="PickerVariant.Dialog" Label="Start" AmPm="true" @bind-Time="_time" />
@@ -21,15 +21,16 @@
         <div class="decription mb-2">
             <MudTextField T="string" Text="Lorem ipsum dolor" Label="Description" Variant="Variant.Text"></MudTextField>
         </div> 
-        <div class="radio-btn-type"> 
+        <div class="radio-btn-type">  
+            <span>Type</span>
             <MudRadioGroup @bind-Value="Radio_Size">
                 <MudRadio Value="1" Color="Color.Primary" Size="Size.Small">Small</MudRadio>
                 <MudRadio Value="1" Color="Color.Primary" Size="Size.Small">Small</MudRadio>
                 <MudRadio Value="1" Color="Color.Primary" Size="Size.Small">Small</MudRadio>
-
             </MudRadioGroup>
-        </div>
-    </div>
+        </div> 
+        <MudIcon Icon="@Icons.Material.Filled.ArrowRight" Color="Color.Default" Size="Size.Large" />
+     </div>
 </div> 
 
 @code{
