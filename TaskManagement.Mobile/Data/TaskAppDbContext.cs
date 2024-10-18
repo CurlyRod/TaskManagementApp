@@ -25,7 +25,7 @@ namespace TaskManagement.Mobile.Data
             const string dbName = "taskapp.db";
             var dbPathName = Path.Combine(FileSystem.AppDataDirectory, dbName);
             //optionsBuilder.UseSqlite($"Data Source={dbName}");  //uncomment this if new migration is need to apply 
-            optionsBuilder.UseSqlite($"FileSystem={dbPathName}");
+            optionsBuilder.UseSqlite($"Filename={dbPathName}");
 
         }
 

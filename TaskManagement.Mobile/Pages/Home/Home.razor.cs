@@ -19,7 +19,7 @@ namespace TaskManagement.Mobile.Pages.Home
             await  GetAllUser(); 
             await Task.Delay(1000);
             IsLoading = false;
-           // SeedData();
+            SeedData();
             await GetAllTask();
         }
 
