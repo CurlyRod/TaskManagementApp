@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaskManagement.Mobile.Models;
 using Microsoft.Extensions.Configuration;
+using TaskManagement.Mobile.Data.Entities;
 
 namespace TaskManagement.Mobile.Data
 {
@@ -18,11 +19,14 @@ namespace TaskManagement.Mobile.Data
 
         }
         public DbSet<UserInfoEntities> UserModelEntities { get; set; }
+        public DbSet<TaskEntities> TaskModelEntities { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             const string dbName = "taskapp.db";
             var dbPathName = Path.Combine(FileSystem.AppDataDirectory, dbName);
-            optionsBuilder.UseSqlite($"Filename = {dbPathName}");
+            //optionsBuilder.UseSqlite($"Data Source={dbName}");  //uncomment this if new migration is need to apply 
+            optionsBuilder.UseSqlite($"FileSystem={dbPathName}");
+
         }
 
     }
