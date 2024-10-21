@@ -32,6 +32,7 @@ namespace TaskManagement.Mobile
 #endif
 
             builder.Services.AddSingleton<WeatherForecastService>();
+            builder.Services.AddScoped<ITaskRepository, TaskRepository>();
             builder.Services.AddSingleton<TaskService>();
            
 

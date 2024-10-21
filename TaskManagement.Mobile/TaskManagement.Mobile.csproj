@@ -11,9 +11,9 @@
         <SingleProject>true</SingleProject>
         <ImplicitUsings>enable</ImplicitUsings>
         <EnableDefaultCssItems>false</EnableDefaultCssItems>
-		<!--<WindowsAppSdkDeploymentManagerInitialize>false</WindowsAppSdkDeploymentManagerInitialize>--><!--   ref for alternative migrations  https://github.com/microsoft/WindowsAppSDK/issues/3228-->
+		<!--<WindowsAppSdkDeploymentManagerInitialize>false</WindowsAppSdkDeploymentManagerInitialize>-->
 
-		<!-- Display name -->
+        <!-- Display name -->
         <ApplicationTitle>Task it!</ApplicationTitle>
 
         <!-- App Identifier -->
@@ -80,11 +80,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Components\" /> 
+      <MauiImage Include="wwwroot\Images\onboarding.png" />
     </ItemGroup>
 
     <ItemGroup>
-      <MauiImage Include="wwwroot\Images\onboarding.png" />
+      <Folder Include="Components\" />
     </ItemGroup>
 
 </Project>
