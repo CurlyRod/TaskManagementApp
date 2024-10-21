@@ -25,7 +25,7 @@ namespace TaskManagement.Mobile.Pages.Home
 
         public async Task<IEnumerable<UserModel>> GetAllUser()
         {
-            var user = await TaskService.GetAllUserAsync();
+            var user = await TaskService.GetUsersAsync(1);
             Users = user.Select(x => new UserModel
             {
                 Id = x.Id,
@@ -39,7 +39,7 @@ namespace TaskManagement.Mobile.Pages.Home
 
         public async Task<IEnumerable<UserModel>> GetUserById( int id =1) {
             
-            var userDetails = await TaskService.GetUserAsync(id);
+            var userDetails = await TaskService.GetUsersAsync(id);
             Users = userDetails.Select(x => new UserModel
             {
                 Id = x.Id,
@@ -85,7 +85,7 @@ namespace TaskManagement.Mobile.Pages.Home
         }
         public async Task<List<TaskModel>> GetAllTask()
         {
-            var tasks = await _dbContext.TaskModelEntities.ToListAsync(); 
+            var tasks = await TaskService.GetAllTaskAsync();
 
             var taskModel = tasks.Select(x => new TaskModel
             {
