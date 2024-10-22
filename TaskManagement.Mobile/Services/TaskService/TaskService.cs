@@ -27,6 +27,10 @@ namespace TaskManagement.Mobile.Services.TaskService
             return await _taskRepository.GetUserInfoAsync(id);  
         }
 
-       
+        public async Task SaveTaskAsync(TaskModel taskModel)
+        {
+            await _taskRepository.SaveTaskAsync(taskModel);  
+        }
+
     }
 }

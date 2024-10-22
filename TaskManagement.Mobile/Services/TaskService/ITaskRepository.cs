@@ -14,8 +14,9 @@ namespace TaskManagement.Mobile.Services.TaskService
     {
        // Task<IEnumerable<UserInfoEntities>> GetAllUserAsync();
         //Task<bool> DeleteTaskAsync(int taskId);
-       Task<IEnumerable<UserInfoEntities>> GetUserInfoAsync(int userId);
+        Task<IEnumerable<UserInfoEntities>> GetUserInfoAsync(int userId);
         Task<IEnumerable<TaskEntities>> GetTasksInfoAsync();
+        Task  SaveTaskAsync(TaskModel task);
     }
 
     public class TaskRepository : ITaskRepository
@@ -49,6 +50,20 @@ namespace TaskManagement.Mobile.Services.TaskService
                 throw new Exception("Error not found user.", ex);
             }
         }
+        public async Task SaveTaskAsync(TaskModel taskModel)
+        {
+            var taskEntities = new TaskEntities
+            {
+                UserId = taskModel.UserId,
+                TaskName = taskModel.TaskName,
+                TaskDescription = taskModel.TaskDescription,
+                CreatedDate = taskModel.CreatedDate,
+                TaskStatus = taskModel.TaskStatus,
+                ActiveInactice = taskModel.ActiveInactice,
+            };
 
+            _context.TaskModelEntities.Add(taskEntities);
+            await _context.SaveChangesAsync(); 
+        }
     }
 }

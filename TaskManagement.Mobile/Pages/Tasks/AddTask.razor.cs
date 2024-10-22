@@ -5,7 +5,7 @@ namespace TaskManagement.Mobile.Pages.Tasks
     public partial class AddTask
     {
         [Parameter] public string? Date { get; set; }
-        public string? ConvertedDate;
+        public string? ConvertedDate { get; set; }
         protected override async Task OnInitializedAsync()
         {
             Converted();
