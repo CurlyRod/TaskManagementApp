@@ -11,7 +11,8 @@ namespace TaskManagement.Mobile.Pages.Home
     public partial class Home
     {  
         public bool IsLoading { get; set; } = true;
-        public List<UserModel> Users { get; set; }
+        public List<UserModel> Users { get; set; } 
+        public List<TaskModel> TaskDetail { get; set; }
         [Inject]  private TaskAppDbContext _dbContext { get; set; } 
             
         protected override async Task OnInitializedAsync()
@@ -86,8 +87,7 @@ namespace TaskManagement.Mobile.Pages.Home
         public async Task<List<TaskModel>> GetAllTask()
         {
             var tasks = await TaskService.GetAllTaskAsync();
-
-            var taskModel = tasks.Select(x => new TaskModel
+            TaskDetail = tasks.Select(x => new TaskModel
             {
                 Id =  x.Id,
                 UserId = x.UserId,
@@ -96,8 +96,8 @@ namespace TaskManagement.Mobile.Pages.Home
                 TaskDescription = x.TaskDescription,
                 ActiveInactice = x.ActiveInactice,
                 TaskStatus = x.TaskStatus
-            }).ToList(); 
-            return taskModel;
+            }).ToList();
+            return TaskDetail;
         }
     } 
  }
