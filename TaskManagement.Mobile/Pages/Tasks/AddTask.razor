@@ -6,30 +6,32 @@
         <p class="m-0 fw-bold text-dark-blue">Add Task</p>
     </div>  
     <div class="content-wrapper">   
-        <div class="plan-for-month mb-2"> 
-            <MudTextField T="string" Text="Click to add title" Label="Title" Variant="Variant.Text"></MudTextField>
-        </div>
-        <div class="date mb-2">
-            <MudTextField T="string" Text="@ConvertedDate"  Disabled="true"Label="Date" Variant="Variant.Text"></MudTextField>
-        </div>
-        <div class="start-time mb-2">
-            <MudTimePicker PickerVariant="PickerVariant.Dialog" Label="Start" AmPm="true" @bind-Time="_time" />
-        </div>
-        <div class="end-time mb-2">
-            <MudTimePicker PickerVariant="PickerVariant.Dialog" Label="End" AmPm="true" @bind-Time="_time" />
-        </div>  
-        <div class="decription mb-2">
-            <MudTextField T="string" Text="Lorem ipsum dolor" Label="Description" Variant="Variant.Text"></MudTextField>
-        </div> 
-        <div class="radio-btn-type">  
-            <span>Type</span>
-            <MudRadioGroup @bind-Value="Radio_Size">
-                <MudRadio Value="1" Color="Color.Primary" Size="Size.Small">Small</MudRadio>
-                <MudRadio Value="1" Color="Color.Primary" Size="Size.Small">Small</MudRadio>
-                <MudRadio Value="1" Color="Color.Primary" Size="Size.Small">Small</MudRadio>
-            </MudRadioGroup>
-        </div> 
-        <MudIcon Icon="@Icons.Material.Filled.ArrowRight" Color="Color.Default" Size="Size.Large" />
+       <EditForm method="POST" FormName="AddTaskDetails" Model="Task" autocomplete="off">
+            <div class="plan-for-month mb-2">
+                <MudTextField id="task-title" @bind-Value="Task.TaskName" T="string" Text="Click to add title" Label="Title" Variant="Variant.Text"></MudTextField>
+            </div>
+            <div class="date mb-2">
+                <MudTextField id="task-date" @bind-Valu="Task.CreatedDate" T="string" Text="@ConvertedDate" Disabled="true" Label="Date" Variant="Variant.Text"></MudTextField>
+            </div>
+            <div class="start-time mb-2">
+                <MudTimePicker id="start-time" @bind-value="Task.StartTime" PickerVariant="PickerVariant.Dialog" Label="Start" AmPm="true" @bind-Time="_time" />
+            </div>
+            <div class="end-time mb-2">
+                <MudTimePicker id="end-time" @bind-value="Task.EndTime" PickerVariant="PickerVariant.Dialog" Label="End" AmPm="true" @bind-Time="_time" />
+            </div>
+            <div class="decription mb-2">
+                <MudTextField id="description" @bind-value="Task.TaskDescription" T="string" Text="Lorem ipsum dolor" Label="Description" Variant="Variant.Text"></MudTextField>
+            </div>
+            <div class="radio-btn-type">
+                <span>Type</span>
+                <MudRadioGroup @bind-Value="Radio_Size">
+                    <MudRadio Value="1" Color="Color.Primary" Size="Size.Small">Small</MudRadio>
+                    <MudRadio Value="1" Color="Color.Primary" Size="Size.Small">Small</MudRadio>
+                    <MudRadio Value="1" Color="Color.Primary" Size="Size.Small">Small</MudRadio>
+                </MudRadioGroup>
+            </div>
+        </EditForm>
+        @* <MudIcon Icon="@Icons.Material.Filled.ArrowRight" Color="Color.Default" Size="Size.Large" /> *@
      </div>
 </div> 
 
@@ -37,4 +39,6 @@
     public string TextValue { get; set; } 
     private TimeSpan? _time = new TimeSpan(00, 45, 00); 
     public int Radio_Size { get; set; } = 2;
+
+    public TaskModel Task { get; set; } = new ();
 }
