@@ -12,7 +12,9 @@ namespace TaskManagement.Mobile.Models
         public int UserId { get; set; }
         public string TaskName { get; set; }
         public string TaskDescription { get; set; } 
-        public string CreatedDate { get; set; } 
+        public string CreatedDate { get; set; }  
+        public DateTime StartTime  { get; set; }
+        public DateTime EndTime { get; set; }
         public string TaskStatus { get; set; } 
         public bool ActiveInactice { get; set; } 
     }
